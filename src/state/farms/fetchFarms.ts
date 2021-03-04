@@ -12,6 +12,7 @@ const fetchFarms = async () => {
   const data = await Promise.all(
     farmsConfig.map(async (farmConfig) => {
       const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
+
       const calls = [
         // Balance of token in the LP contract
         {
@@ -55,7 +56,7 @@ const fetchFarms = async () => {
         lpTotalSupply,
         tokenDecimals,
         quoteTokenDecimals
-      ] = await multicall(erc20, calls)
+      ] = [new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0)];
 
       let tokenAmount;
       let lpTotalInQuoteToken;
