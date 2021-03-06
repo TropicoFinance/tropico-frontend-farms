@@ -57,7 +57,20 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const apy = new BigNumber(100000);
+        const cakeRewardPerBlock = new BigNumber(farm.eggPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
+
+        let apy = cakePrice.times(cakeRewardPerYear);
+
+        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
+
+        if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+          totalValue = totalValue.times(bnbPrice);
+        }
+
+        if(totalValue.comparedTo(0) > 0){
+          apy = apy.div(totalValue);
+        }
 
         return { ...farm, apy }
       })
@@ -88,8 +101,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       </Heading>
       <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
         {TranslateString(10000, 'Deposit Fee will be used to buyback TRPC')}
-        <br/>
-
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>

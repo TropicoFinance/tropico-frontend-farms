@@ -12,7 +12,6 @@ const fetchFarms = async () => {
   const data = await Promise.all(
     farmsConfig.map(async (farmConfig) => {
       const lpAdress = farmConfig.lpAddresses[CHAIN_ID]
-
       const calls = [
         // Balance of token in the LP contract
         {
@@ -56,7 +55,7 @@ const fetchFarms = async () => {
         lpTotalSupply,
         tokenDecimals,
         quoteTokenDecimals
-      ] = [new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0), new BigNumber(0)];
+      ] = await multicall(erc20, calls)
 
       let tokenAmount;
       let lpTotalInQuoteToken;
@@ -104,7 +103,7 @@ const fetchFarms = async () => {
         },
         {
           address: getMasterChefAddress(),
-          name: 'eggPerBlock',
+          name: 'TRPCPerBlock',
         },
       ])
 

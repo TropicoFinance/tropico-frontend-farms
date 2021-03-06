@@ -8,7 +8,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'TRPC-BUSD LP',
     lpAddresses: {
       97: '',
-      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
+      56: '0xeB01Bdd29e1AeACB70281F533194AC9d98Cf0692',
     },
     tokenSymbol: 'TRPC',
     tokenAddresses: {
@@ -29,7 +29,7 @@ const farms: FarmConfig[] = [
     tokenSymbol: 'TRPC',
     tokenAddresses: {
       97: '',
-      56: '0xa6477c795dA4B68813EA167660145464D89e6646',
+      56: '0x18288d40b0826Df44A97eDaaaAC9e9C81ccc76e4',
     },
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
@@ -185,12 +185,12 @@ const farms: FarmConfig[] = [
     lpSymbol: 'TRPC',
     lpAddresses: {
       97: '',
-      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // EGG-BUSD LP
+      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // TRPC-BUSD LP
     },
     tokenSymbol: 'TRPC',
     tokenAddresses: {
       97: '',
-      56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
+      56: '0xa6477c795dA4B68813EA167660145464D89e6646',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
@@ -202,7 +202,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BUSD',
     lpAddresses: {
       97: '',
-      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // EGG-BUSD LP (BUSD-BUSD will ignore)
+      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019', // TRPC-BUSD LP (BUSD-BUSD will ignore)
     },
     tokenSymbol: 'BUSD',
     tokenAddresses: {
